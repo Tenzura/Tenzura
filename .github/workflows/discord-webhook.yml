@@ -2,8 +2,7 @@ name: Discord Webhook
 
 on:
   push:
-    branches:
-      - main  # or your default branch
+    branches: [main]
 
 jobs:
   notify:
@@ -15,3 +14,7 @@ jobs:
         uses: johnnyhuy/actions-discord-git-webhook@main
         with:
           webhook_url: ${{ secrets.YOUR_DISCORD_WEBHOOK_URL }}
+          repo_name: Tenzura Main Repo
+          color: 00ffcc
+          censor_username: false
+          hide_links: false
