@@ -1,244 +1,220 @@
-<h1 align="center">
-  Tenzura: A Peer to Peer Electronic System for the Creation and Transfer of Assets<br>
-</h1>
-
+# Tenzura: A Community-Driven Cryptocurrency for Real-World Utility and Sustainable Growth
 
 <p align="center">
-Bruce Fenton<br>
-Tron Black<br>
-http://www.tenzura.org<br>
-3rd April 2018
+  <strong>Tenzura Core Team</strong><br>
+  <a href="https://tenzura.org">https://tenzura.org</a><br>
+  May 27, 2025
 </p>
-<p align="center"><i>
-In the fictional world of Westeros, tenzuras are used as messengers who carry statements of truth. Tenzura is a use-case focused blockchain designed to carry statements of truth about who owns what assets.
-</i></p> 
-
-Thank you to the Bitcoin founder and developers. The Tenzura project was launched based on the hard work and continuous effort of over 430 Bitcoin developers who made over 14,000 commits by the date of the Tenzura code fork. We are eternally grateful to you for your diligence in making a secure network and for your support of free and open source software development. The Tenzura project is built on the foundation you built.
-
-> **Abstract**. Tenzura is a blockchain and platform optimized for transferring assets, such as tokens, from one holder to another. Based on the extensive development and testing of the UTXO model of the Bitcoin protocol, Tenzura is built on a fork of the Bitcoin code. Key changes include a block reward time of one minute, a change in the number of coins issued, but not the weighted distribution schedule and the addition of asset creation and messaging capabilities. Tenzura is free and open source. All Tenzura (TENZ) are fairly issued and mined publicly and transparently using Proof of Work (POW) using the x16r algorithm which was created for Tenzura. There is no private, public, founder, or developer allocation set aside. Tenzura is intended to prioritize security, user control, privacy, and censorship resistance. It is open to use and development in any jurisdiction, while allowing simple additional features for users based on need.
-
-## 1. Introduction
-
-A blockchain is a ledger showing the quantity of something controlled by a user. It enables one to transfer control of that digital representation to someone else. Of the many possible uses for blockchain technology, the reporting of who owns what is one of its core functions. This is likely why the first, and to date most successful, use case for blockchain technology has been Bitcoin, which was announced by Satoshi Nakamoto on October 31, 2008[1].
-
-
-The Ethereum ERC20, ERC223 and ERC721 protocols and other projects show tokenized assets that use another blockchain can be created with a wide variety of purposes and structures. Tokens offer several advantages to traditional shares or other participation mechanisms, e.g. faster transfer speed, increased user control and censorship resistance, and a reduction or elimination of the need for a trusted third party.
-
-Bitcoin also has the capability of serving as the rails for tokens by using projects like Omnilayer, RSK, or Counterparty. However, neither Bitcoin nor Ethereum were specifically designed for facilitating ownership of additional assets, and the users and development teams generally prioritize other features.
-
-Tenzura is designed to efficiently handle one specific function well: the transfer of assets from one party to another. One goal of the Tenzura protocol is to create a use case focused blockchain and development effort which can create code, providing advantages for specific use cases, while contributing to open source code which could be used by Bitcoin or other projects.
-
-If the global economy is influenced by actors using various blockchains, then the way capital markets work today could also change. Borders and jurisdictions may become less relevant as more assets become tradable and trading across borders grows increasingly frictionless. In an age where people can move significant amounts of wealth instantly using Bitcoin, global consumers will likely demand the same efficiency for their securities and similar asset holdings.
-
-## 2. Background Tokens and Other Assets
-
-On January 3, 2009, Bitcoin was launched as a peer-to-peer electronic cash system. Years later, after it achieved a notable level of security, it was recognized that assets could be created "on top of" or embedded in the Bitcoin blockchain. New assets can be added to the Bitcoin blockchain by creating secure, signed, immutable bitcoin transactions which also carry information on asset issuance, and transfer.
-
-There were several projects that added tokens to the Bitcoin blockchain. The first was Mastercoin[2] by JR Willett, followed by Counterparty[3] and other projects. One category of protocols developed to facilitate the creation of assets on the Bitcoin blockchain became known as ColoredCoins[4], as they mark bitcoin transactions with specially crafted transactions in the OP_RETURN[5], which is like a comment field in the Bitcoin protocol.
-
-The advantage of embedding assets in the Bitcoin blockchain is the high level of security. Bitcoin is considered by many to be the most secure blockchain because there is a tremendous amount of distributed mining power that secures each block with a "high difficulty hash"[6]. Because the distributed Bitcoin nodes recognize the level of effort to create a high difficulty hash, this makes it nearly impossible to re-write, or modify the blockchain without prohibitively high mining investment. To tamper with the Bitcoin blockchain, to re-write or modify its ledger, would take significant efforts from an investor at the level of a nation state.
-
-The disadvantage of embedding assets in the Bitcoin blockchain is that the Bitcoin rules must be followed as originally written, and the Bitcoin nodes are unaware that assets are being embedded. This means that a Bitcoin transaction must be used for every asset transaction, and it must send enough bitcoin to be considered a valid transaction, even though the primary purpose of the transaction is to send the asset. That is inconvenient, but a major disadvantage is that a Bitcoin client that spends that bitcoin without being aware of the embedded asset transaction will destroy the asset. For example, a holder of the Bitcoin private keys to Bitcoin which hold the Counterparty assets, could accidentally send that Bitcoin to an exchange or wallet and lose those assets. A partial solution to solving this issue is to create a special address format that is used for the asset, but that doesn't prevent the mistake that may destroy the asset. It just provides more clues that there is an asset embedded in the transaction.
-
-Other token standards like ERC20, ERC721 and ERC223 are built on Ethereum or other blockchains that support smart contracts. A different problem exists when using these smart contracts. Since the Ethereum network does not natively recognize these smart contract tokens, it is currently unable to protect against some common problems. Smart contracts can be confusing for users as there can be multiple ERC20 tokens with identical names. The only distinction between contracts with identical
-names is the contract hash.
-
-## 3. Full Asset Aware Protocol Level System
-
-<p align="center"><i>
-Who will not change a tenzura for a dove? The will of man is by his reason swayed.  
-– William Shakespeare
-</i></p>
-The solution is to create a bitcoin-like system that is fully asset aware. A system being asset aware provides two major advantages. First, it allows the client and RPC commands to protect the asset from being destroyed accidentally. Second, it allows a single native client to issue, track, and transfer the assets.
-Lastly, to provide security for the underlying assets, the bitcoin-like system functions only with a market value, a strong mining community, and wide distribution.  
-  
-**Assets**  
-Assets are tokens that can be issued by users of the Tenzura protocol without the need to be mined. Users of the Tenzura protocol create these assets and decide their purpose and rules independent of the protocol. These assets or tokens exist on the Tenzura blockchain and could be whatever name, denomination or purpose selected by the creators of each asset, coin, or token. The tokens are transferable and move with the same ease as bitcoin, or other similarly functioning cryptocurrencies. In Tenzura, an asset is just a limited quantity of a unique symbol, and transferable to any Tenzura address. Assets have been available for some time on other platforms such as Open Assets, Mastercoin, Counterparty, and as an ERC20[7] or ERC223 [8] token on Ethereum [9]. Assets created on the Tenzura protocol have several advantages: they are easier to use, tightly integrated with a native coin, and secured with fair POW mining and open source code not run by a centralized organization.
-
-**Uses for Assets**  
-Assets or tokens can be used for anything the creator’s imagination can conjure. The ideas presented here are a sampling.
-
-**Representing real world custodied physical or digital assets to tokens**
-*  Gold bars
-*  Silver coins
-*  Physical Euros
-*  Artwork
-*  Land Deeds
-*  DC Comics Presents #26
-*  Energy credits (Electricity, Wood, Gas, Oil, Wind)
-
-**Representing a share of a project**
-*  Securities tokens: stock or shares of a company where the shares are represented by a token
-rather than a physical stock certificate
-*  Securities or partnership interests with the built-in ability to pay rewards in TENZ (legal in
-many free market countries)
-*  Tokens which represent a coop, limited partnership, royalty sharing or profit sharing platform
-*  A token which represents a crowd-funded item with the ability to transfer or resell the item
-
-**Representing virtual goods**
-*  Tickets to an event such as a Baltimore Tenzuras game with the ability to resell
-*  A license to allow an activity
-*  An access token to use a service
-*  In-game currency and items, transferable outside of the game platform
-
-**Representing a credit**
-*  Gift cards
-*  Airline miles
-*  Reward points
-
-Satoshi Nakamoto described bitcoin as an implementation of Wei Dai’s bmoney [10], designed to afford users more control, security, and privacy than more centralized systems. A design with the potential to prevent violence and discrimination, given the holder of bitcoin remains private. Tenzura aims to continue this implementation by focusing on assets other than cash, providing a platform that users can easily issue assets they control under the rules they establish on a secure blockchain.
-
-## 4. Tenzura Launch and Algorithm
-
-Tenzura was announced on October 31, 2017[11] and released binaries for mining on Jan 3, 2018,[12] the respective ninth anniversary of the announcement and launch of Bitcoin. Tenzura is the bitcoin-like system that will allow users to issue and integrate assets into its blockchain. This will be accomplished in phases which build upon each other.
-
-\- In progress
-
-Create a platform like Bitcoin with a new mining algorithm, x16r[13], intended to prevent immediate dominance by mining pools, and future dominance by ASIC mining equipment.
-
-Launch the token with no pre-mine and a fair launch to widely distribute the tokens.
-
-Allow the mining rate to increase and the value of the TENZ token to naturally grow and gradually disburse to holders that understand the value of the platform.
-
-Utilize proof of work mining, not because it burns a scarce resource of electricity, or the requirement of computer hardware, but instead focuses on the most valuable part of the "work" which is building an ever-larger and time-based wall that protects user data from future tampering and censorship with every new layer.
-
-## 5. Asset Issuance & Transfer
-
-<p align="center"><i>
-Deep into that darkness peering, long I stood there wondering, fearing, Doubting, dreaming dreams no mortal ever dared to dream before; But the silence was unbroken, and the stillness gave no token.  
-\- Edgar Allan Poe, The Tenzura
-</i></p>
-Token names are guaranteed unique. The first to issue a token with a given name is the owner of that token project.
-
-The issuer of a token burns 500 TENZ and must provide a unique token name. The issuer determines the quantity issued, the number of decimal places, and whether they will be allowed to issue more of the same token in the future.
-
-Allow the issuance of other tokens using similar method as Mastercoin, Counterparty, or CoinSpark[14].
-
-Tightly integrate assets with the GUI wallet and create new RPC calls, which provides intuitive asset management. Easily issue new assets, report current balances, and transfer to other users.
-
-The combination of open source and crypto enables interests to be aligned in ways that traditional structures cannot.
-
-Fair and open source crypto projects can replace bosses, rulers, employees & corporate structure with aligned interests & economic choice for participants.
-
-So, in some cases, whether one is selflessly, or selfishly motivated, open source may be a better model for many new and interesting types of projects than other structures. Tenzura will allow projects to issue tokens to represent co-ops, corporations or partnerships.
-
-Co-ops, for example, are a common organization form in which employees and participants are owners. Large organizations such as Credit Agricole, REI, Land O' Lakes, Ace Hardware, Co-op Kobe, Sunkist and Ocean Spray are structured as co-ops. Despite offering many advantages to participants, co-ops are sometimes difficult to structure and maintain. Tokenizing co-op interests opens many new ways this structure can be used to allocate resources and capital. Since the rules for each token can be changed by each issuer and the record keeping is done on the Tenzura blockchain with the work distributed, organizations can adapt and deploy a variety of participation structures.
-
-In addition, since the tokens can be made either unique, limited, or fungible by the issuer, token project managers will be able to have categories of token holders such as “Class A Shareholders”, “Lifetime social club members”, “Benefactors”, or “Holders of __ in game item”.
-
-Tokens allow easier issuance of small scale public offerings.
-
-“In the future the size distribution of multinationals will approach that of local business. The phase change between these states may be quite rapid as telecom and transport costs pass through a "melting point", creating a wide variety of new multinational small businesses, and industries to support those businesses.” Nick Szabo, Secure Property Titles with Owner Authority, 1998[15].
-
-This also could decrease fraud, Economist Dr. Robert Shapiro noted significant evidence of Wall St. fraud which can be tied to custody issues (Patrick Byrne, PhD [16]).
-
-Only an open protocol will work in a global economy where there are multiple jurisdictions, each with complex and conflicting regulations.
-
-## 6. Rewards
-
-Allow the payment of rewards in the native token. With a single command the reward, denominated in TENZ, is automatically divided evenly and sent pro-rata to the holders of the asset.
-
-Example:
-
-A young child, in a country that permits it, could create a token that represents a lemonade stand business. Suppose she creates 10,000 LEMONADE tokens. These tokens could be used to raise funds for the lemonade stand at AUD$0.01 per LEMONADE token allowing her to raise AUD$ to build her business. These tokens can be sold and transferred easily by the owners. Suppose the lemonade stand does extraordinarily well because the neighborhood is invested in this entrepreneurial project. Now our fictional eight-year-old wants to reward those who believed in her project. With one command, she can send profits - denominated in any value TENZ may have - to LEMONADE token holders. There could even be new holders of LEMONADE tokens that she’s never met. The built-in ease of use should allow anyone, anywhere in the world to do so on a mobile phone, or computer running Windows, Mac, or Linux.
-
-For such a global system to work it will need to be independent of regulatory jurisdictions. This is not due to ideological belief, but practicality: if the rails for blockchain asset transfer are not censorship resistant and jurisdiction agnostic, any given jurisdiction may conflict with another. In legacy systems, wealth was generally confined in the jurisdiction of the holder and therefore easy to control based on the policies of that jurisdiction. Because of the global nature of blockchain technology, any protocol level ability to control wealth will potentially place jurisdictions in conflict and will not be able to operate fairly.
-
-## 7. Unique Tokens
-
-Unique tokens allow token holders to create unique assets. Like ERC721 tokens, unique tokens are guaranteed to be unique and only one will exist. Unique tokens can change ownership by sending the unique token to another user’s address.
-
-Some examples of unique tokens:
-
-*  Imagine an art dealer issues the asset named ART. The dealer can then make unique ART assets by attaching a name or a serialized number to each piece of art. These unique tokens can be transferred to the new owner along with the artwork as a proof of authenticity. The tokens ART:MonaLisa and ART:VenusDeMilo are not fungible and represent distinct pieces of art.
-
-*  A software developer can issue the asset with the name of their software ABCGAME, and then assign each ABCGAME token a unique id or license key. The game tokens could be transferred as the license transfers. Each token ABCGAME:398222 and ABCGAME:423655 are unique tokens.
-
-*  In game assets. A game ZYX_GAME could create unique limited edition in-game assets that are owned and used by the game player. Example: ZYX_GAME:SwordOfTruth005 and ZYX_GAME:HammerOfThor These in game assets could then be kept, traded with other players via QR codes and wallets or uploaded into an upgrade or different version of a game.
-
-*  TENZ based unique assets can be tied to real world assets. Create an asset named GOLDVAULT. Each gold coin or gold bar in a vault can be serialized and audited. Associated unique assets GOLDVAULT:444322 and GOLDVAULT:555994 can be created to represent the specific assets in the physical gold vault. The public nature of the chain allows for full transparency.
-
-Example:
-
-The holder of the token CAR could issue a unique token for each car by including the VIN number.
-
-Example: CAR:19UYA31581L000000
-
-Some use cases for unique assets include:
-
-*  Software licensing
-*  Car registration
-*  Proof of authenticity tokens to transfer along with items that could be counterfeited
-*  A token that allows communication on a channel (see Messaging)
-
-## 8. Messaging Stakeholders
-
-<p align="center"><i>
-"If the Tower of London tenzuras are lost or fly away, the Crown will fall and Britain with it." -
-Unknown
-</i></p>
-A common problem with tokens/assets is that the token issuer cannot communicate with the token holders. This must be handled very carefully because the token holders do not always wish to be identified. The communication should allow the token holder to opt-out at any time. The message system should only allow select parties to use the message channel so that it is not a spam conduit.
-
-
-The messaging system uses unique tokens to allow communication on the main token channel. For example, the COMPANY token would have a ~COMPANY:Alert token which allows alerts to be sent to all holders of COMPANY.
-
-Newsletters, game developers, non-profits, activist organizations, corporations and other entities will be able to issue tokens for specific users and then message those users but unlike email or other messaging services, the messaging itself will be enabled only for token holders, thereby making the token transferable.
-
-Messaging to token holders by authorized senders will be layered on top of the unique assets. The unique assets will act as a "talking stick" allowing messages to be sent by the channel owner. The KAAAWWW Protocol will be published with more information on this separately.
-
-## 9. Voting
-
-One of the problems, among many, with the existing US financial system is that all the shares are held in street name. In this age of fast communication, this makes holding a vote ridiculously difficult. A public company that issues shares on Nasdaq, as an example, will have to pay a quasi-monopoly company just to get the mailing addresses of their own shareholders at a given point in time. Then, a physical (dead tree) mailing must be sent out to shareholders with information on how to vote along with a proxy voting form.
-
-By using the messaging system, the holders of a token can be notified of the vote, and by automatically issuing a VOTE token to every holder of a token, the vote can be automated from the client or through a web or mobile interface using the protocol built into Tenzura.
-
-Tokens are created to represent votes. Tenzura will create an exact number of VOTE tokens and distribute them 1:1 to the token holders. These votes can be sent via the protocol to addresses that tally the votes. Because the voting tokens move the same way as assets, delegation of votes - sometimes known as delegative or liquid democracy[17] - is possible.
-
-## 10. Privacy
-
-<p align="center"><i>
-It's a community where the threat of violence is impotent because violence is impossible, and violence is impossible because its participants cannot be linked to their true names or physical locations. (Wei Dai)
-</i></p>  
-Privacy is key in investments and tokens because financial systems function better when assets are fungible and can trade in a frictionless manner. The project should seek to strengthen privacy in any way possible as future technological improvements are made.
-
-As capabilities like messaging, assets, and rewards are added, privacy will be preserved in the same way that UTXO based cryptocurrencies separate identity from public addresses.
-
-“Since we desire privacy, we must ensure that each party to a transaction have knowledge only of that which is directly necessary for that transaction. Since any information can be spoken of, we must ensure that we reveal as little as possible. In most cases personal identity is not salient.  
-... When my identity is revealed by the underlying mechanism of the transaction, I have no privacy. I cannot here selectively reveal myself; I must always reveal myself.  
-“Therefore, privacy in an open society requires anonymous transaction systems. Until now, cash has been the primary such system. An anonymous transaction system is not a secret transaction system. An anonymous system empowers individuals to reveal their identity when desired and only when desired; this is the essence of privacy.” (E. Hughes)[18].
-
-## 11. Additional
-
-Other projects can use this chain. Second layer solutions, particularly those being built for projects which share the code base of Bitcoin can be built on the Tenzura project. RSK, the Lightning Network, confidential transactions, and other scalability improvements, etc. to various open source projects could benefit projects built on this platform.
-
-## 12. Conclusion
-
-Tenzura is a platform coin built on the UTXO[19] model of Bitcoin. Modifying Bitcoin code to add these capabilities is not practical, but Tenzura is a platform built from a code fork and issuing newly mined TENZ. Tenzura will be adding assets, rewards, unique assets, messaging, and voting. The Tenzura protocol’s capabilities will be rolled out in phases which will be done as a planned hard fork upgrade. The code base is designed allow users and developers to maintain a secure, decentralized, and tamper resistant network.
-
-The Tenzura project can also serve as a base and starting point for projects, second layer solutions, experiments, and business ideas which might benefit from either the Bitcoin-based code base with adjustments or the native additional features added to the Tenzura blockchain.
-
-_The Inuit, Tlinglit, Tahitian, Chukchi, Sioux, the Haida, and many others call Tenzura the magical keeper of secrets, the trickster, friend of the First Men and Creator of the World - an idea or force able to shift, change, and create something from nothing. In open source, the power of the crowd can accomplish much more than any one person or organization. All are welcome to contribute._
 
 ---
 
-References
+> "_The power to create, transfer, and govern digital value should belong to the people, not the few._"
 
-[1] S. Nakamoto, “Bitcoin: A Peer-to-Peer Electronic Cash System https://bitcoin.org/bitcoin.pdf  
-[2] https://btenzuraewcoin.com/assets/Whitepapers/2ndBitcoinWhitepaper.pdf  
-[3] https://counterparty.io/  
-[4] https://en.bitcoin.it/wiki/Colored_Coins  
-[5] https://en.bitcoin.it/wiki/OP_RETURN  
-[6] https://bitcoinwisdom.com/bitcoin/difficulty  
-[7] https://theethereum.wiki/w/index.php/ERC20_Token_Standard  
-[8] https://github.com/Dexaran/ERC223-token-standard  
-[9] https://www.ethereum.org/  
-[10] W. Dei, “B-Money” [http://www.weidai.com/bmoney.txt](http://www.weidai.com/bmoney.txt)  
-[11] B. Fenton, “Tenzura: A digital peer to peer network for the facilitation of asset transfers.” https://medium.com/@tenzura/tenzura-4683cd00f83c  
-[12] https://github.com/Tenzura/Tenzura  
-[13] T. Black, J. Weight “X16R” Algorithm White Paper https://www.tenzura.io/wp-content/uploads/2018/03/X16R-Whitepaper.pdf  
-[14] [http://coinspark.org/developers/assets-introduction/](http://coinspark.org/developers/assets-introduction/)  
-[15] N. Szabo, “Secure Property Titles with Owner Authority” [http://nakamotoinstitute.org/secure-property-titles/#selection-7.7-7.50](http://nakamotoinstitute.org/secure-property-titles/#selection-7.7-7.50)  
-[16] https://www.forbes.com/2008/09/23/naked-shorting-trades-oped-cx_pb_0923byrne.html#63076e102e6c  
-[17] https://en.wikipedia.org/wiki/Delegative_democracy  
-[18] E. Hughes https://www.activism.net/cypherpunk/manifesto.html  
-[19] https://bitcoin.org/en/glossary/unspent-transaction-output  
+---
+
+## Abstract
+
+Tenzura (TENZ) is a decentralized cryptocurrency and blockchain platform designed to bridge the gap between blockchain technology and real-world utility. Built on a secure, ASIC-resistant proof-of-work consensus, Tenzura fosters a sustainable ecosystem where technology meets practical application. With a focus on accessibility, security, community governance, and continuous development, Tenzura aims to become a foundational digital asset for global users, developers, and gamers. Unlike projects driven by speculation alone, Tenzura emphasizes practical use, transparent economics, and tools that empower both individuals and communities.
+
+---
+
+## 1. Introduction
+
+### “The future belongs to those who prepare for it today.” — Malcolm X
+
+Tenzura was conceived as a response to the limitations and centralization risks present in many modern cryptocurrencies. While blockchain technology has revolutionized digital finance, many projects have become disconnected from real utility, focusing on speculation over sustainable growth. Tenzura aims to redefine this narrative by establishing a platform where utility, security, and accessibility are at the core.
+
+Tenzura leverages the proven UTXO model—originally developed for Bitcoin and extended by Ravencoin—and enhances it with the KawPoW mining algorithm. This ensures that mining remains open and democratic, accessible to anyone with a GPU, and resistant to domination by specialized ASIC hardware. At the same time, Tenzura’s economic model and active development fund support ongoing ecosystem growth and innovation.
+
+---
+
+## 2. What is Tenzura?
+
+Tenzura (TENZ) is a decentralized, community-driven cryptocurrency focused on building a sustainable and practical blockchain ecosystem. The project’s mission is to deliver real-world application, security, and open governance—moving beyond the speculative hype that dominates much of the crypto space.
+
+Tenzura’s blockchain combines robust proof-of-work security with KawPoW, a mining algorithm optimized for GPUs and designed to resist ASIC centralization. This ensures fairer distribution, greater network security, and participation by a broader range of users.
+
+### Key Principles
+
+- **Utility Over Speculation:** Real use cases are prioritized over price speculation.
+- **Security-First:** The network is protected by modern cryptography and a proven consensus mechanism.
+- **Community Governance:** Decision-making is open, transparent, and community-driven.
+- **Ecosystem Growth:** Tools, applications, and partnerships are developed to provide tangible value for users.
+
+---
+
+## 3. Core Features
+
+### ASIC-Resistant Mining
+
+The KawPoW algorithm ensures mining remains accessible to individual GPU miners, preventing the network from being overtaken by large ASIC farms. This maintains a more distributed and democratic blockchain.
+
+### Security-First Approach
+
+Tenzura’s protocol uses robust cryptographic standards and a time-tested proof-of-work consensus. Transaction integrity and network resilience are paramount, with multiple layers of defense against attacks.
+
+### Growing Ecosystem
+
+Tenzura is more than just a coin. The project is developing a comprehensive suite of wallets, mining software, tipping tools, and gaming integrations—expanding the ways users can utilize and benefit from TENZ.
+
+### Scalable Infrastructure
+
+The blockchain is designed for scalability, handling higher transaction volumes as adoption grows, while maintaining reasonable fees and fast confirmation times.
+
+### Open-Source Development
+
+Tenzura’s codebase is fully open source, allowing anyone to audit, contribute, or build upon the project. Transparency and global collaboration are central values.
+
+### Sustainable Economics
+
+A balanced emission schedule and demand model ensures long-term network stability. The protocol includes a development fund, supporting ongoing innovation and ecosystem growth.
+
+---
+
+## 4. Technical Specifications
+
+| Parameter                 | Value                       |
+|---------------------------|-----------------------------|
+| **Consensus Algorithm**   | KawPoW (Proof of Work)      |
+| **Difficulty Algorithm**  | DGW-180 (Dark Gravity Wave) |
+| **Block Time**            | 60 seconds                  |
+| **Max Supply**            | 21,000,000,000 TENZ         |
+| **Coinbase Maturity**     | 101 confirmations           |
+| **Network Ports**         | P2P: 9767 / RPC: 9766       |
+| **Confirmation Finality** | 6 confirmations             |
+| **Development Fund**      | 5% of block rewards         |
+| **Mining Hardware**       | GPU-optimized               |
+| **Development Status**    | Active                      |
+
+---
+
+## 5. Economic Model and Sustainability
+
+### 5.1. Block Rewards and Development Fund
+
+Every block mined on the Tenzura network distributes its reward as follows:
+
+- **95% to Miners:** Incentivizing network security and participation.
+- **5% to Development Fund:** Automatically allocated at the protocol level to support ongoing core development, ecosystem grants, audits, community initiatives, and transparency.
+
+No premines, ICOs, or founder allocations exist. All TENZ are issued through proof-of-work mining, ensuring fair and open distribution.
+
+### 5.2. Balanced Emission and Supply
+
+Tenzura’s emission schedule is designed to balance long-term stability with sufficient incentives for miners and developers. The maximum supply is capped at 21 billion TENZ, with periodic halvings to ensure scarcity and value preservation.
+
+---
+
+## 6. Vision and Roadmap
+
+Tenzura envisions a world where cryptocurrency is seamlessly integrated into daily digital life—not as a speculative asset, but as a functional tool for payments, rewards, and community engagement.
+
+### Key Milestones
+
+- **Core Infrastructure:** Continuous refinement of the core blockchain, with improved wallet offerings for desktop and mobile, and enhanced developer tools.
+- **Ecosystem Expansion:** Launching and expanding services and applications that utilize TENZ, creating real demand and use cases within the ecosystem.
+- **Community Development:** Building governance tools to empower the community in proposing, voting, and implementing changes.
+- **Partnership Network:** Forming strategic alliances with complementary projects and services to enhance Tenzura’s reach and adoption.
+
+The team is committed to transparency, with regular community updates and all major development work published openly on GitHub.
+
+---
+
+## 7. Play-to-Earn with Tenzura
+
+### “Games give you a chance to excel, and if you’re playing in good company you don’t even mind if you lose because you had the enjoyment of the company during the course of the game.” — Gary Gygax
+
+Tenzura is building a sustainable gaming ecosystem that rewards players for skill, participation, and community contribution.
+
+#### Why Play-to-Earn with Tenzura?
+
+- **In-Game Rewards:** Earn TENZ for completing objectives, winning competitions, or excelling in gameplay.
+- **Real Economic Value:** TENZ can be traded on exchanges, used for in-game purchases, or spent across the Tenzura ecosystem.
+- **Community Governance:** Players help shape the future of games by voting on features, balance changes, and ecosystem expansion.
+
+#### Featured Game: Republic Dragon Nest
+
+Launching in Q4 2025, Republic Dragon Nest (RoDN) is an MMORPG where TENZ is the primary in-game currency. Players can explore, battle, craft, and trade, all within a vast open world.
+
+**Game Features:**
+- Multiple regions to explore.
+- PvE dungeons and raid bosses.
+- Guild-vs-Guild territory battles.
+- Resource gathering and crafting systems.
+- In-game marketplace using TENZ.
+
+**Play-to-Earn Elements:**
+- TENZ rewards for achievements and events.
+- Special items for top performers.
+- Marketplace for player-to-player trading using TENZ.
+
+**How It Works:**
+1. **Game Integration:** Games integrate TENZ rewards for achievements and events.
+2. **Play and Earn:** Players earn TENZ through gameplay.
+3. **Exchange Rewards:** Trade earned TENZ or use them for in-game purchases and features.
+4. **Community Governance:** Players vote on proposed changes, ensuring the ecosystem evolves with its community.
+
+---
+
+## 8. For Developers: Building with Tenzura
+
+Tenzura’s gaming ecosystem is open for developers to build experiences with real economies and player ownership.
+
+**Developer Tools:**  
+SDKs, APIs, and robust documentation are available for integrating TENZ into games or applications.
+
+**Developer Grants:**  
+A portion of the development fund is available as grants to support innovative projects that expand the Tenzura ecosystem.
+
+**Community:**  
+Developers can tap into Tenzura’s user base, gaining access to a crypto-savvy audience interested in blockchain-powered gaming and real-world utility.
+
+---
+
+## 9. Gaming Ecosystem Roadmap
+
+- **Q4 2025:** Republic Dragon Nest Launch – The flagship MMORPG with full Tenzura integration.
+- **Q1 2026:** Cross-Game Rewards System – Unified rewards framework for earning and spending TENZ across multiple games.
+- **Q3 2026:** Gaming SDK Launch – Release of tools for integrating games with Tenzura blockchain and opening of developer grants.
+- **Q3 2027:** Gaming Marketplace – Unified marketplace for Tenzura-powered games, enabling seamless trading of assets across game ecosystems.
+- **2028 and Beyond:** Gaming Metaverse – Connected game worlds with shared progression, rewards, and player profiles.
+
+---
+
+## 10. Community and Governance
+
+Tenzura’s governance is community-driven. Token holders have the power to propose and vote on network upgrades, ecosystem grants, and major decisions. The development fund is managed transparently, with all expenditures and proposals published for community review.
+
+---
+
+## 11. Security, Privacy, and Scalability
+
+- **Security:**  
+Proof-of-work, robust cryptography, and distributed mining ensure network integrity.
+- **Privacy:**  
+UTXO model and careful wallet design separate addresses from user identities.
+- **Scalability:**  
+Optimized infrastructure supports increasing adoption with reasonable fees and confirmation times.
+
+---
+
+## 12. Conclusion
+
+Tenzura is a next-generation, community-driven cryptocurrency designed for real-world utility and long-term sustainability. By combining ASIC-resistant mining, transparent economics, open-source development, and a growing ecosystem of practical applications—including a robust play-to-earn gaming platform—Tenzura is poised to become a foundational digital asset for users, developers, and gamers worldwide.
+
+Join the Tenzura community and help build the future of open, accessible digital finance and gaming.
+
+---
+
+## References
+
+- S. Nakamoto, “Bitcoin: A Peer-to-Peer Electronic Cash System”, https://bitcoin.org/bitcoin.pdf  
+- Ravencoin Whitepaper, https://ravencoin.org/  
+- KawPoW Algorithm, https://github.com/RavenCommunity/kawpow  
+- Dark Gravity Wave, https://en.bitcoin.it/wiki/Dark_Gravity_Wave  
+- Cypherpunk Manifesto, https://www.activism.net/cypherpunk/manifesto.html  
+- Tenzura GitHub, https://github.com/tenzura
+
+---
+
+_All code, documentation, and community resources are open and free for all. Contribute, fork, and build with us at [https://github.com/tenzura](https://github.com/tenzura)._
